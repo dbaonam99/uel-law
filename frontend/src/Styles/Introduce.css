@@ -1,0 +1,86 @@
+.IntroduceBody {
+  padding: 100px 120px;
+  width: 100%;
+}
+.IntroduceBody .about-left {
+  width: 100%;
+  margin: 0;
+}
+.IntroduceBody .about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-body-text {
+  width: 100%;
+}
+.IntroduceBody .about-body-text p {
+  /* text-indent: 50px;  */
+  text-align: justify;
+  color: #666;
+}
+.about-body-text img {
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  max-height: 500px;
+}
+.introduce-img .introduce-title-img {
+  width: 70%;
+  height: 30px;
+  /* background-image: -webkit-linear-gradient(left,#9b6f45,#d5aa6d); */
+  /* color: #FFF; */
+  background-color: #eee;
+  text-align: center;
+  font-size: 14px;
+  line-height: 30px;
+}
+.introduce-title-text {
+  color: #000;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+.editorjs-table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.editorjs-table table {
+  border-collapse: collapse;
+  width: 80%;
+}
+.editorjs-table table th {
+  background-color: #d5aa6d;
+  color: #fff;
+}
+.editorjs-table table td,
+.editorjs-table table th {
+  text-align: left;
+  padding: 8px;
+}
+.editorjs-table table tr:last-child {
+  border-bottom: 1px #d5aa6d solid;
+}
+.editorjs-table table tr:nth-child(even) {
+  background-color: #eee;
+}
+
+@media only screen and (max-width: 1150px) {
+  .IntroduceBody {
+    padding: 50px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .about-body-text img,
+  .introduce-img .introduce-title-img {
+    width: 100%;
+    height: max-content;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .IntroduceBody {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

@@ -1,0 +1,114 @@
+.LibraryItem {
+    width: 100%; 
+    padding: 30px 30px 56px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 2px 29px rgba(34,34,34,.14);
+    background-color: #fff;
+    margin-right: 30px; 
+    margin-bottom: 50px;
+}
+.search-lib { 
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.lib-info {  
+    align-items: center;
+    margin: 0 0 17px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ececf0; 
+    color: #999;
+    font-size: 14px; 
+    text-transform: capitalize;
+    font-weight: 200;
+} 
+.lib-info-item {
+    margin-right: 30px;
+    align-items: center;
+    transition: .5s;
+    cursor: pointer;
+}
+.lib-info-item .icon {
+    margin-right: 10px; 
+} 
+.lib-info-item:hover { 
+    color: #d5aa6d;
+}
+.lib-title { 
+    transition: .5s;
+    cursor: pointer; 
+    font-weight: bold;
+    font-size: 22px;
+    color: #180b36;
+    margin-bottom: 20px;
+}
+.Sponsor .lib-title {
+    text-align: center;
+
+}
+.lib-title:hover {
+    color: #d5aa6d;
+}
+.lib-text {
+    font-size: 16px;
+    line-height: 1.625;
+    color: #666;
+    font-weight: 300;
+}
+.LibraryItem:hover .lib-transform{
+    opacity: 1;
+    transform: translateY(30px);
+}
+.lib-transform {
+    position: absolute; 
+    width: calc(100% - 60px);
+    opacity: 0;
+    transition: .5s;
+    transform: translateY(60px);
+}
+.lib-readmore { 
+    padding: 15px 37px;  
+    background-color: transparent;
+    color: #FFF;
+    border-radius: 35px;
+    width: max-content;   
+    transition: .5s;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(left,#d5aa6d,#9b6f45);
+    position: relative;
+    box-shadow: 0 4px 7px rgba(213,170,109,.48);
+    transition: opacity 0.5s ease-in-out; 
+}
+.lib-readmore p {
+    z-index: 2;
+}
+.lib-readmore::before {
+    content: '';
+    border-radius: 30px;
+    position: absolute;
+    left: 0; top: 0; right:0; bottom: 0;
+    background-image: -webkit-linear-gradient(left,#9b6f45,#d5aa6d);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; 
+}
+.lib-readmore:hover::before {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1150px) {  
+    .LibraryItem {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+@media only screen and (max-width: 1000px) {  
+    .LibraryItem {
+        margin-right: 0;
+    }
+}
+@media only screen and (max-width: 550px) {  
+    .LibraryItem {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

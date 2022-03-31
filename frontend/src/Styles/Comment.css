@@ -1,0 +1,31 @@
+.Comment {
+    margin-right: 30px;
+    width: 100%;
+    height: 50px; 
+    padding-top: 55px;
+}
+.comment-title {
+    font-size: 22px;
+    color: #180b36;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 500;
+    margin-bottom: 38px;
+}
+.comment-title:before {
+    content: '';
+    width: 40px;
+    height: 3px;
+    background-color: #d5aa6d;
+    background-image: -webkit-gradient(linear,left top,right top,from(#d5aa6d),to(#9b6f45));
+    background-image: -moz-linear-gradient(left,#d5aa6d,#9b6f45);
+    background-image: -ms-linear-gradient(left,#d5aa6d,#9b6f45);
+    background-image: -o-linear-gradient(left,#d5aa6d,#9b6f45);
+    background-image: linear-gradient(left,#d5aa6d,#9b6f45);
+    background-image: -webkit-linear-gradient(left,#d5aa6d,#9b6f45);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#d5aa6d',endColorStr='#9b6f45',gradientType='1');
+    box-shadow: 0 4px 8px rgba(213,170,109,.47);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

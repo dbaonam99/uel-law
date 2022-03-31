@@ -1,0 +1,80 @@
+.ContactBody { 
+    width: 100%;
+    padding: 100px 120px;
+} 
+.contact-header-right p {
+    color: #111 !important;
+    font-weight: 200;
+}
+.contact-address {
+    width: 50%;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+.ContactBody .about-title-text {
+    width: 550px;
+    text-align: center;
+}
+.ContactBody .contact-form {
+    width: 50%;
+}
+.ContactBody .contact-form input {
+    border: 2px solid transparent;
+    background-color: #eef1f5;
+    color: #111; 
+    margin: 0;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.ContactBody .contact-form textarea {
+    border: 2px solid transparent; 
+    background-color: #eef1f5;
+    color: #111;
+    margin-top: 0; 
+}
+.ContactBody .contact-form textarea:focus,
+.ContactBody .contact-form input:focus {
+    border: 2px solid #d5aa6d;
+}
+.ContactBody .contact-form button {
+    border-radius: 30px;
+}
+.contact-address {
+    font-weight: 300;
+    color: #111; 
+}
+.contact-address p {
+    margin-bottom: 30px;
+} 
+.contact-address-item .icon {
+    margin-right: 30px;
+    font-size: 22px;
+    color: #d5aa6d;
+    width: 20px;
+    height: 20px; 
+} 
+@media only screen and (max-width: 1150px) {  
+    .ContactBody {
+        padding: 50px;
+    }
+    .ContactBody .about-title-text {
+        width: 100%;
+    } 
+} 
+@media only screen and (max-width: 650px) {  
+    .contact-body {
+        flex-direction: column;
+    }
+    .contact-address {
+        margin-right: 0;
+        width: 100%;
+    }
+    .ContactBody .contact-form {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 550px) {   
+    .ContactBody {
+        padding: 50px 20px;
+    }
+}
