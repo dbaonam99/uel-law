@@ -27,6 +27,10 @@
     align-items: center;
     transition: .5s;
     cursor: pointer;
+    width: max-content;
+}
+.lib-info-item p {
+    white-space: nowrap;
 }
 .lib-info-item .icon {
     margin-right: 10px; 

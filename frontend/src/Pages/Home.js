@@ -24,39 +24,46 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    try {
-      setLoading(true)
-      window.scrollTo(0, 0)
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/home`).then((res) => {
-        setHome(res.data[0])
-      })
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/quote`).then((res) => {
-        setQuote(res.data)
-      })
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/sponsor`).then((res) => {
-        setSponsor(res.data)
-      })
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/team`).then((res) => {
-        setTeam(res.data)
-      })
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`).then((res) => {
-        setNews(res.data)
-      })
-      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res) => {
-        setLibrary(res.data)
-      })
-    } finally {
-      setLoading(false)
-    }
-  }, [])
+    setLoading(true)
+    window.scrollTo(0, 0)
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    if (home._id && quote.length > 0 && sponsor.length > 0 && news.length > 0) {
-      setLoading(false)
-      document.body.style.overflow = 'unset'
-    }
-  }, [home, quote, sponsor, team, news])
+    Promise.all([
+      axios
+        .get(`${process.env.REACT_APP_API_ENDPOINT}/home`)
+        .then((res) => res.data[0])
+        .catch(() => {}),
+      axios
+        .get(`${process.env.REACT_APP_API_ENDPOINT}/quote`)
+        .then((res) => res.data)
+        .catch(() => []),
+      axios
+        .get(`${process.env.REACT_APP_API_ENDPOINT}/sponsor`)
+        .then((res) => res.data)
+        .catch(() => []),
+      axios
+        .get(`${process.env.REACT_APP_API_ENDPOINT}/team`)
+        .then((res) => res.data)
+        .catch(() => []),
+      axios
+        .get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
+        .then((res) => res.data)
+        .catch(() => []),
+      axios
+        .get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
+        .then((res) => res.data)
+        .catch(() => []),
+    ])
+      .then(([_home, _quote, _sponsor, _team, _news, _library]) => {
+        setHome(_home)
+        setQuote(_quote)
+        setSponsor(_sponsor)
+        setTeam(_team)
+        setNews(_news)
+        setLibrary(_library)
+        setLoading(false)
+      })
+      .catch((error) => console.log(error))
+  }, [])
 
   return (
     <div className="Home">
