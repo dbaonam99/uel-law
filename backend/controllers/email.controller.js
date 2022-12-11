@@ -4,7 +4,8 @@ var Home = require("../models/home.model");
 var nodemailer = require('nodemailer'); 
 var mongoose = require('mongoose');
 
-module.exports.index = async function(req, res) {  
+module.exports.index = async function(req, res) { 
+    console.log(req.params)
     Email.findOneAndUpdate(
         { _id: req.params.idUser, "sendEmail.emailId": req.params.idEmail},
         { 
