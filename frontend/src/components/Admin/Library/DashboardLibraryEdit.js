@@ -22,7 +22,7 @@ export default function DashboardLibraryEdit(props) {
   const library = props.library
 
   useEffect(() => {
-    axios.get('https://uel-law.herokuapp.com/library').then((res) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res) => {
       const libCateArr = []
       for (let i in res.data) {
         libCateArr.push(res.data[i].libraryCate)
@@ -56,7 +56,7 @@ export default function DashboardLibraryEdit(props) {
     event.preventDefault()
     setBoxLoading(true)
     axios
-      .put('https://uel-law.herokuapp.com/library', {
+      .put(`${process.env.REACT_APP_API_ENDPOINT}/library`, {
         id: id,
         libraryTitle: libraryTitle,
         libraryUrl: ChangeToSlug(libraryTitle),

@@ -25,7 +25,7 @@ export default function DashboardLibraryCreate(props) {
     const [libraryCateList, setLibraryCateList] = useState([])
     const [libraryGroupList, setLibraryGroupList] = useState([])
     useEffect(()=>{
-        axios.get('https://uel-law.herokuapp.com/library')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
         .then((res)=>{
             const libCateArr = []
             for (let i in res.data) {
@@ -53,7 +53,7 @@ export default function DashboardLibraryCreate(props) {
             alert("Hãy điền đủ thông tin!")
             return
         }
-        axios.post('https://uel-law.herokuapp.com/library', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/library`, {
             libraryTitle: libraryTitle,
             libraryUrl: ChangeToSlug(libraryTitle),
             libraryGroup: libraryGroup,

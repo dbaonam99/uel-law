@@ -15,7 +15,7 @@ export default function DashboardTeamMemberTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/team`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/team`)
             .then(res => {
                 setTeam(res.data.reverse())
                 setConstTeam(res.data)
@@ -102,7 +102,7 @@ export default function DashboardTeamMemberTable(props) {
 
     const deleteOnClick = (event) => {
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/team/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/team/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setTeam(team.filter((item)=>{

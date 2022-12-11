@@ -33,7 +33,7 @@ export default function DashboardBannerItem(props) {
     
             axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", imageForm)
             .then((res) => {  
-                axios.post('https://uel-law.herokuapp.com/banner', {
+                axios.post(`${process.env.REACT_APP_API_ENDPOINT}/banner`, {
                     id: banner._id,
                     bannerImg: res.data.url,
                     bannerSmall: bannerSmall,
@@ -49,7 +49,7 @@ export default function DashboardBannerItem(props) {
                 })  
             }) 
         } else {
-            axios.post('https://uel-law.herokuapp.com/banner', {
+            axios.post(`${process.env.REACT_APP_API_ENDPOINT}/banner`, {
                 id: banner._id,
                 bannerImg: bannerImg,
                 bannerSmall: bannerSmall,

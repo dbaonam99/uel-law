@@ -24,7 +24,7 @@ export default function DashboardNewsCreate(props) {
     const [boxLoading, setBoxLoading] = useState(false)
 
     useEffect(()=>{
-        axios.get('https://uel-law.herokuapp.com/news')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
         .then((res)=>{
             const libCateArr = []
             for (let i in res.data) {
@@ -49,7 +49,7 @@ export default function DashboardNewsCreate(props) {
         formData.append("upload_preset", "dbaonam");
         axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", formData)
         .then((res) => {     
-            axios.post('https://uel-law.herokuapp.com/news', {
+            axios.post(`${process.env.REACT_APP_API_ENDPOINT}/news`, {
                 newsBanner: res.data.url,
                 newsTitle: newsTitle,
                 newsDate: new Date(),
@@ -57,7 +57,7 @@ export default function DashboardNewsCreate(props) {
                 newsUrl: ChangeToSlug(newsTitle)
             })
             .then((res)=>{ 
-                axios.post('https://uel-law.herokuapp.com/news/content', {
+                axios.post(`${process.env.REACT_APP_API_ENDPOINT}/news/content`, {
                     id: res.data,
                     newsContent: newsContent
                 })

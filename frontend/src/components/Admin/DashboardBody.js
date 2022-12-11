@@ -78,55 +78,55 @@ export default function DashboardBody(props) {
 
   useEffect(() => {
     props.setLoadingEditFunc(true)
-    Axios.get(`https://uel-law.herokuapp.com/quote/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/quote/${props.productId}`).then(
       (res) => {
         setQuote(res.data)
         // props.setLoadingEditFunc(false)
       }
     )
     Axios.get(
-      `https://uel-law.herokuapp.com/introduce/${props.productId}`
+      `${process.env.REACT_APP_API_ENDPOINT}/introduce/${props.productId}`
     ).then((res) => {
       setIntroduce(res.data)
       // props.setLoadingEditFunc(false)
     })
-    Axios.get(`https://uel-law.herokuapp.com/archive/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/archive/${props.productId}`).then(
       (res) => {
         setArchive(res.data)
         props.setLoadingEditFunc(false)
       }
     )
-    Axios.get(`https://uel-law.herokuapp.com/sponsor/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/sponsor/${props.productId}`).then(
       (res) => {
         setSponsor(res.data)
         // props.setLoadingEditFunc(false)
       }
     )
-    Axios.get(`https://uel-law.herokuapp.com/team/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/team/${props.productId}`).then(
       (res) => {
         setTeam(res.data)
         // props.setLoadingEditFunc(false)
       }
     )
-    Axios.get(`https://uel-law.herokuapp.com/email/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/email/${props.productId}`).then(
       (res) => {
         setEmail(res.data)
         // props.setLoadingEditFunc(false)
       }
     )
-    Axios.get(`https://uel-law.herokuapp.com/contact/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/contact/${props.productId}`).then(
       (res) => {
         setContact(res.data)
         // props.setLoadingEditFunc(false)
       }
     )
-    Axios.get(`https://uel-law.herokuapp.com/news/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news/${props.productId}`).then(
       (res) => {
         setNews(res.data)
         // props.setLoadingEditFunc(false)
       }
     )
-    Axios.get(`https://uel-law.herokuapp.com/library/${props.productId}`).then(
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library/${props.productId}`).then(
       (res) => {
         setLibrary(res.data)
         // props.setLoadingEditFunc(false)

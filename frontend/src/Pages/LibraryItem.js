@@ -18,17 +18,17 @@ export default function LibraryItem(props) {
     useEffect(()=>{
         window.scrollTo(0,0)
         document.body.style.overflow = 'hidden';
-        axios.get(`https://uel-law.herokuapp.com/library/${props.location.pathname.split("/")[4]}`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library/${props.location.pathname.split("/")[4]}`)
         .then((res)=>{
             setLibrary(res.data) 
             setLoading(false) 
             document.body.style.overflow = 'unset'; 
         }) 
-        axios.get('https://uel-law.herokuapp.com/home')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/home`)
         .then((res)=>{
             setHome(res.data[0]) 
         }) 
-        axios.get('https://uel-law.herokuapp.com/news')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
         .then((res)=>{
             setNews(res.data) 
         })

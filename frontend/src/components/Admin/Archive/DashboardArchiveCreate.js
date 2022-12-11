@@ -13,7 +13,7 @@ export default function DashboardArchiveCreate(props) {
     const onSubmit = (event) => {
         setBoxLoading(true)
         event.preventDefault()   
-        axios.post('https://uel-law.herokuapp.com/archive', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/archive`, {
             archiveName: archiveName,
             archiveLink: archiveLink,
             archiveDate: new Date()

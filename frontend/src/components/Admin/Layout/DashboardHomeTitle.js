@@ -38,7 +38,7 @@ export default function DashboardHomeTitle(props) {
     const onSubmit = (event) => {
         event.preventDefault()  
         setBoxLoading(true)
-        axios.put('https://uel-law.herokuapp.com/home', {
+        axios.put(`${process.env.REACT_APP_API_ENDPOINT}/home`, {
             id: id,
             homeSponsor: homeSponsor,
             homeTeamMemberTitle: homeTeamMemberTitle,

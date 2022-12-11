@@ -23,7 +23,7 @@ export default function DashboardTeamMemberCreate(props) {
         formData.append("upload_preset", "dbaonam");
         axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", formData)
         .then((res) => {  
-            axios.post('https://uel-law.herokuapp.com/team', { 
+            axios.post(`${process.env.REACT_APP_API_ENDPOINT}/team`, { 
                 teamMemberAvt: res.data.url,
                 teamMemberName: teamMemberName,
                 teamMemberTitle: teamMemberTitle,

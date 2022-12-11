@@ -34,7 +34,7 @@ export default function DashboardQuoteEdit(props) {
             formData.append("upload_preset", "dbaonam");
             axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", formData)
             .then((res) => {  
-                axios.put('https://uel-law.herokuapp.com/quote', { 
+                axios.put(`${process.env.REACT_APP_API_ENDPOINT}/quote`, { 
                     id: id,
                     quoteAvt: res.data.url,
                     quoteName: quoteName,
@@ -48,7 +48,7 @@ export default function DashboardQuoteEdit(props) {
                 })  
             })  
         } else {
-            axios.put('https://uel-law.herokuapp.com/quote', { 
+            axios.put(`${process.env.REACT_APP_API_ENDPOINT}/quote`, { 
                 id: id,
                 quoteAvt: quoteAvt,
                 quoteName: quoteName,

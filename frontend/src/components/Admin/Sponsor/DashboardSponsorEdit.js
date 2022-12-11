@@ -33,7 +33,7 @@ export default function DashboardSponsorEdit(props) {
             formData.append("upload_preset", "dbaonam");
             axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", formData)
             .then((res) => {  
-                axios.put('https://uel-law.herokuapp.com/sponsor', { 
+                axios.put(`${process.env.REACT_APP_API_ENDPOINT}/sponsor`, { 
                     id: id,
                     sponsorImg: res.data.url,
                     sponsorName: sponsorName,
@@ -46,7 +46,7 @@ export default function DashboardSponsorEdit(props) {
                 })  
             })  
         } else {
-            axios.put('https://uel-law.herokuapp.com/sponsor', { 
+            axios.put(`${process.env.REACT_APP_API_ENDPOINT}/sponsor`, { 
                 id: id,
                 sponsorImg: sponsorImg,
                 sponsorName: sponsorName,

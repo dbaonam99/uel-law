@@ -21,7 +21,7 @@ export default function DashboardQuoteCreate(props) {
         formData.append("upload_preset", "dbaonam");
         axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", formData)
         .then((res) => {  
-            axios.post('https://uel-law.herokuapp.com/quote', { 
+            axios.post(`${process.env.REACT_APP_API_ENDPOINT}/quote`, { 
                 quoteAvt: res.data.url,
                 quoteName: quoteName,
                 quoteTitle: quoteTitle,

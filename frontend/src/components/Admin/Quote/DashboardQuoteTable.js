@@ -15,7 +15,7 @@ export default function DashboardQuoteTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/quote`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/quote`)
             .then(res => {
                 setQuote(res.data.reverse())
                 setConstQuote(res.data)
@@ -102,7 +102,7 @@ export default function DashboardQuoteTable(props) {
 
     const deleteOnClick = (event) => {
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/quote/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/quote/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setQuote(quote.filter((item)=>{

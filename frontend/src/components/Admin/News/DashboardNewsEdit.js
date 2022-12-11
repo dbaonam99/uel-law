@@ -33,7 +33,7 @@ export default function DashboardNewsEdit(props) {
   }, [news])
 
   useEffect(() => {
-    axios.get('https://uel-law.herokuapp.com/news').then((res) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`).then((res) => {
       const libCateArr = []
       for (let i in res.data) {
         libCateArr.push(res.data[i].newsCate)
@@ -59,7 +59,7 @@ export default function DashboardNewsEdit(props) {
         )
         .then((res) => {
           axios
-            .put('https://uel-law.herokuapp.com/news', {
+            .put(`${process.env.REACT_APP_API_ENDPOINT}/news`, {
               id: id,
               newsBanner: res.data.url,
               newsTitle: newsTitle,
@@ -69,7 +69,7 @@ export default function DashboardNewsEdit(props) {
             })
             .then(() => {
               axios
-                .post('https://uel-law.herokuapp.com/news/content', {
+                .post(`${process.env.REACT_APP_API_ENDPOINT}/news/content`, {
                   id: id,
                   newsContent: newsContent,
                 })
@@ -82,7 +82,7 @@ export default function DashboardNewsEdit(props) {
         })
     } else {
       axios
-        .put('https://uel-law.herokuapp.com/news', {
+        .put(`${process.env.REACT_APP_API_ENDPOINT}/news`, {
           id: id,
           newsBanner: newsBanner,
           newsTitle: newsTitle,
@@ -92,7 +92,7 @@ export default function DashboardNewsEdit(props) {
         })
         .then(() => {
           axios
-            .post('https://uel-law.herokuapp.com/news/content', {
+            .post(`${process.env.REACT_APP_API_ENDPOINT}/news/content`, {
               id: id,
               newsContent: newsContent,
             })

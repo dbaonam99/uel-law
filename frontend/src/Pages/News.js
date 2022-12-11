@@ -18,17 +18,17 @@ export default function News(props) {
     useEffect(()=>{
         window.scrollTo(0,0)
         document.body.style.overflow = 'hidden';
-        axios.get(`https://uel-law.herokuapp.com/news/${props.location.pathname.split("/")[3]}`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news/${props.location.pathname.split("/")[3]}`)
         .then((res)=>{
             setNews(res.data)  
             setLoading(false) 
             document.body.style.overflow = 'unset'; 
         }) 
-        axios.get('https://uel-law.herokuapp.com/home')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/home`)
         .then((res)=>{
             setHome(res.data[0]) 
         })
-        axios.get('https://uel-law.herokuapp.com/news')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
         .then((res)=>{
             setNewsList(res.data) 
         })

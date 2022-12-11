@@ -38,7 +38,7 @@ export default function DashboardTeamMemberEdit(props) {
             formData.append("upload_preset", "dbaonam");
             axios.post("https://api.cloudinary.com/v1_1/dzoxlskiz/image/upload", formData)
             .then((res) => {  
-                axios.put('https://uel-law.herokuapp.com/team', { 
+                axios.put(`${process.env.REACT_APP_API_ENDPOINT}/team`, { 
                     id: id,
                     teamMemberAvt: res.data.url,
                     teamMemberName: teamMemberName,
@@ -54,7 +54,7 @@ export default function DashboardTeamMemberEdit(props) {
                 })  
             })  
         } else {
-            axios.put('https://uel-law.herokuapp.com/team', { 
+            axios.put(`${process.env.REACT_APP_API_ENDPOINT}/team`, { 
                 id: id,
                 teamMemberAvt: teamMemberAvt,
                 teamMemberName: teamMemberName,

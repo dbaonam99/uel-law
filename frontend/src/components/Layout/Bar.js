@@ -16,11 +16,11 @@ function Bar(props) {
     const [news, setNews] = useState([]) 
 
     useEffect(()=>{ 
-        axios.get('https://uel-law.herokuapp.com/home')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/home`)
         .then((res)=>{
             setHome(res.data[0]) 
         }) 
-        axios.get('https://uel-law.herokuapp.com/news')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
         .then((res)=>{
             setNews(res.data.reverse().slice(0,3)) 
         }) 

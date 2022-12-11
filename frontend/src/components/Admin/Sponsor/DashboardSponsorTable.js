@@ -15,7 +15,7 @@ export default function DashboardSponsorTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/sponsor`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/sponsor`)
             .then(res => {
                 setSponsor(res.data.reverse())
                 setConstSponsor(res.data)
@@ -102,7 +102,7 @@ export default function DashboardSponsorTable(props) {
 
     const deleteOnClick = (event) => { 
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/sponsor/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/sponsor/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setSponsor(sponsor.filter((item)=>{

@@ -14,7 +14,7 @@ export default function ContactBody(props) {
     const onSubmit = (event) => {
         event.preventDefault()  
 
-        axios.post('https://uel-law.herokuapp.com/contact', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/contact`, {
             contactEmail: contactEmail,
             contactName: contactName,
             contactContent: contactContent

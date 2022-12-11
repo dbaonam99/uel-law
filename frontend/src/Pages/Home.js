@@ -24,26 +24,30 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-    axios.get('https://uel-law.herokuapp.com/home').then((res) => {
-      setHome(res.data[0])
-    })
-    axios.get('https://uel-law.herokuapp.com/quote').then((res) => {
-      setQuote(res.data)
-    })
-    axios.get('https://uel-law.herokuapp.com/sponsor').then((res) => {
-      setSponsor(res.data)
-    })
-    axios.get('https://uel-law.herokuapp.com/team').then((res) => {
-      setTeam(res.data)
-    })
-    axios.get('https://uel-law.herokuapp.com/news').then((res) => {
-      setNews(res.data)
-    })
-    axios.get('https://uel-law.herokuapp.com/library').then((res) => {
-      setLibrary(res.data)
-    })
-    setLoading(true)
+    try {
+      setLoading(true)
+      window.scrollTo(0, 0)
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/home`).then((res) => {
+        setHome(res.data[0])
+      })
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/quote`).then((res) => {
+        setQuote(res.data)
+      })
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/sponsor`).then((res) => {
+        setSponsor(res.data)
+      })
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/team`).then((res) => {
+        setTeam(res.data)
+      })
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`).then((res) => {
+        setNews(res.data)
+      })
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res) => {
+        setLibrary(res.data)
+      })
+    } finally {
+      setLoading(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -62,7 +66,7 @@ export default function Home() {
       <Intro />
       {home && <AboutUs home={home} />}
       {home && <Quote quote={quote} />}
-      {home && <Sponsors home={home} sponsor={sponsor} />}
+      {home && sponsor.length > 0 && <Sponsors home={home} sponsor={sponsor} />}
       {home && team.length > 0 && <TeamMember home={home} team={team} />}
       {news && home && <Blog home={home} news={news} />}
       {home && <ContactForm home={home} />}

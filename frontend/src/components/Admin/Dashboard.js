@@ -108,7 +108,7 @@ function Dashboard(props) {
     if (localStorage.getItem('token')) {
       axios
         .get(
-          `https://uel-law.herokuapp.com/users/${localStorage.getItem(
+          `${process.env.REACT_APP_API_ENDPOINT}/users/${localStorage.getItem(
             'user-id'
           )}`,
           {

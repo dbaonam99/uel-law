@@ -14,7 +14,7 @@ export default function Introduce() {
 
     useEffect(()=>{
         window.scrollTo(0,0)
-        axios.get('https://uel-law.herokuapp.com/introduce')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/introduce`)
         .then((res)=>{
             setIntroduceList(res.data) 
             setLoading(false) 

@@ -19,7 +19,7 @@ export default function DashboardEmailEdit(props) {
     const onSubmit = (event) => {
         event.preventDefault()
         setBoxLoading(true) 
-        axios.post(`https://uel-law.herokuapp.com/email/update/${email._id}`, {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/email/update/${email._id}`, {
             subscriberEmail: subscriberEmail
         }).then(()=>{
             props.setCloseEditFunc(false);

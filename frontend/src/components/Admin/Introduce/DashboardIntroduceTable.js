@@ -17,7 +17,7 @@ function DashboardIntroduceTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/introduce`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/introduce`)
             .then(res => {
                 setIntroduce(res.data)
                 setConstIntroduce(res.data)
@@ -104,7 +104,7 @@ function DashboardIntroduceTable(props) {
 
     const deleteOnClick = (event) => { 
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/introduce/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/introduce/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setIntroduce(introduce.filter((item)=>{

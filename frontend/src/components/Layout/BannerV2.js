@@ -24,7 +24,7 @@ function BannerV2(props) {
             "liên hệ"
         ] 
         if (location === "gioi-thieu") { 
-            axios.get('https://uel-law.herokuapp.com/introduce')
+            axios.get(`${process.env.REACT_APP_API_ENDPOINT}/introduce`)
             .then((res)=>{ 
                 for (let i in res.data) {
                     if (res.data[i].introduceUrl === location2) {
@@ -34,7 +34,7 @@ function BannerV2(props) {
             })
         } else if (location === "thu-vien") {
             setTitle("thư viện")
-            axios.get('https://uel-law.herokuapp.com/library')
+            axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
             .then((res)=>{ 
                 const libGroupArr = []
                 for (let i in res.data) {
@@ -59,7 +59,7 @@ function BannerV2(props) {
                 }
             }
         }
-        axios.get(`https://uel-law.herokuapp.com/banner`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/banner`)
         .then((res)=>{
             for (let i in res.data) { 
                 if (res.data[i].bannerAtHome === false) {

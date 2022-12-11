@@ -23,7 +23,7 @@ export default function DashboardArchiveEdit(props) {
     const onSubmit = (event) => {
         event.preventDefault()   
         setBoxLoading(true)
-        axios.put('https://uel-law.herokuapp.com/archive', {
+        axios.put(`${process.env.REACT_APP_API_ENDPOINT}/archive`, {
             id: id,
             archiveName: archiveName,
             archiveLink: archiveLink, 

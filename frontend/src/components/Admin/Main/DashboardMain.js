@@ -30,8 +30,8 @@ export default function DashboardMain() {
       lastMonth = currentMonth - 1
       lastYear = currentYear
     }
-    axios.get(`https://uel-law.herokuapp.com/news`).then((res) => {
-      axios.get(`https://uel-law.herokuapp.com/library`).then((res2) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`).then((res) => {
+      axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res2) => {
         const data = [...res.data, ...res2.data]
         setNews(data)
         const lastMonthArr = []
@@ -85,10 +85,10 @@ export default function DashboardMain() {
         }
       })
     })
-    axios.get(`https://uel-law.herokuapp.com/library`).then((res) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res) => {
       setLibrary(res.data)
     })
-    axios.get(`https://uel-law.herokuapp.com/email`).then((res) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/email`).then((res) => {
       setEmail(res.data)
       const data = [...res.data]
       const lastMonthArr = []

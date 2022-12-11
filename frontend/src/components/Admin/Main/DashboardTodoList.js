@@ -14,7 +14,7 @@ export default function DashboardTodoList(props) {
     const [boxLoading, setBoxLoading] = useState(false)
 
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/todos`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/todos`)
             .then(res => {
                 setTodoList(res.data)
             }
@@ -37,7 +37,7 @@ export default function DashboardTodoList(props) {
             }
         }
         setTodoList(virtualTodo)
-        axios.post('https://uel-law.herokuapp.com/todos/update', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/todos/update`, {
             id: id,
             isDone: isDone
         }) 
@@ -53,9 +53,9 @@ export default function DashboardTodoList(props) {
             todoDate: new Date()
         }
         virtualTodo.push(data)  
-        axios.post('https://uel-law.herokuapp.com/todos', data)
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/todos`, data)
         .then((res) => {   
-            axios.get(`https://uel-law.herokuapp.com/todos`)
+            axios.get(`${process.env.REACT_APP_API_ENDPOINT}/todos`)
                 .then(res2 => {
                     setTodoList(res2.data)
                     setOpenNewTodo(false)
@@ -67,7 +67,7 @@ export default function DashboardTodoList(props) {
 
     const deleteTodo = (event) => { 
         const id = event.target.id
-        axios.post('https://uel-law.herokuapp.com/todos', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/todos`, {
             delete: true,
             id: id
         }).then((res)=>{
@@ -93,7 +93,7 @@ export default function DashboardTodoList(props) {
             }
         }
         setTodoList(virtualTodo)
-        axios.post('https://uel-law.herokuapp.com/todos/update', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/todos/update`, {
             edit: true,
             id: id,
             todoContent: editTodoText

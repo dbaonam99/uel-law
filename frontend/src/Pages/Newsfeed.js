@@ -15,7 +15,7 @@ export default function Newsfeed() {
     useEffect(()=>{
         window.scrollTo(0,0)
         document.body.style.overflow = 'hidden';  
-        axios.get('https://uel-law.herokuapp.com/news')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
         .then((res)=>{
             setNews(res.data)  
             setLoading(false)  

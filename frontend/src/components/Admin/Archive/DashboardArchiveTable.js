@@ -15,7 +15,7 @@ export default function DashboardArchiveTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/archive`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/archive`)
             .then(res => {
                 setArchive(res.data.reverse())
                 setConstArchive(res.data) 
@@ -102,7 +102,7 @@ export default function DashboardArchiveTable(props) {
 
     const deleteOnClick = (event) => {  
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/archive/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/archive/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setArchive(archive.filter((item)=>{

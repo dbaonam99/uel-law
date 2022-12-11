@@ -15,7 +15,7 @@ export default function DashboardEmailTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/email`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/email`)
             .then(res => {
                 setEmail(res.data.reverse())
                 setConstEmail(res.data)
@@ -102,7 +102,7 @@ export default function DashboardEmailTable(props) {
 
     const deleteOnClick = (event) => {  
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/email/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/email/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setEmail(email.filter((item)=>{

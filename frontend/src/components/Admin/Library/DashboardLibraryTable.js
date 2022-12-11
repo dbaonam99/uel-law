@@ -21,7 +21,7 @@ function DashboardLibraryTable(props) {
   const [deleteLoading, setDeleteLoading] = useState(false)
 
   useEffect(() => {
-    axios.get(`https://uel-law.herokuapp.com/library`).then((res) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res) => {
       setLibrary(res.data.reverse())
       setConstLibrary(res.data)
     })
@@ -107,7 +107,7 @@ function DashboardLibraryTable(props) {
   const deleteOnClick = (event) => {
     setDeleteLoading(true)
     axios
-      .delete(`https://uel-law.herokuapp.com/library/${event.target.id}`)
+      .delete(`${process.env.REACT_APP_API_ENDPOINT}/library/${event.target.id}`)
       .then(() => {
         setDeleteLoading(false)
         setLibrary(

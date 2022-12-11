@@ -15,7 +15,7 @@ function Library() {
     useEffect(()=>{ 
         window.scrollTo(0,0)
         document.body.style.overflow = 'hidden';
-        axios.get('https://uel-law.herokuapp.com/library')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
         .then((res)=>{
             setLibrary(res.data) 
             setLoading(false) 

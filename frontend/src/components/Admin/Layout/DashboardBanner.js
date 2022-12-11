@@ -10,7 +10,7 @@ export default function DashboardBanner(props) {
     const [bannerList, setBannerList] = useState([])
     
     useEffect(()=>{
-        axios.get('https://uel-law.herokuapp.com/banner')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/banner`)
         .then((res)=>{
             setBannerList(res.data)
         })

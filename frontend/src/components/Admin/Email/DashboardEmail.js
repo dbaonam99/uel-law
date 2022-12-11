@@ -10,7 +10,7 @@ export default function DashboardEmail(props) {
     const [home, setHome] = useState({})
 
     useEffect(()=>{ 
-        axios.get(`https://uel-law.herokuapp.com/home`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/home`)
         .then((res)=>{ 
             setHome(res.data[0]) 
         })

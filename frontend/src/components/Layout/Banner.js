@@ -21,7 +21,7 @@ export default function Banner() {
     },[tab])
 
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/banner`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/banner`)
         .then((res)=>{
             setBannerList(res.data)
         })

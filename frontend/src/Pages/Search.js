@@ -18,7 +18,7 @@ function Search(props) {
     useEffect(()=>{
         window.scrollTo(0,0) 
         document.body.style.overflow = 'hidden';  
-        axios.get('https://uel-law.herokuapp.com/library')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
         .then((res)=>{
             const constLibrary = res.data
             const search = []
@@ -29,7 +29,7 @@ function Search(props) {
             } 
             setLibrary(search)
         }) 
-        axios.get('https://uel-law.herokuapp.com/news')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
         .then((res)=>{
             const constNews = res.data
             const search = []

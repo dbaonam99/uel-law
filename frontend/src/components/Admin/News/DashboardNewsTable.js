@@ -17,7 +17,7 @@ function DashboardNewsTable(props) {
     const [deleteLoading, setDeleteLoading] = useState(false)
     
     useEffect(()=>{
-        axios.get(`https://uel-law.herokuapp.com/news`)
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
             .then(res => {
                 setNews(res.data.reverse())
                 setConstNews(res.data)
@@ -104,7 +104,7 @@ function DashboardNewsTable(props) {
 
     const deleteOnClick = (event) => { 
         setDeleteLoading(true)
-        axios.delete(`https://uel-law.herokuapp.com/news/${event.target.id}`)
+        axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/news/${event.target.id}`)
         .then(()=>{
             setDeleteLoading(false)
             setNews(news.filter((item)=>{

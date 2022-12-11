@@ -22,7 +22,7 @@ export default function DashboardArchiveCreate(props) {
     const onSubmit = (event) => {
         event.preventDefault()   
         setBoxLoading(true)
-        axios.post('https://uel-law.herokuapp.com/introduce', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/introduce`, {
             introduceName: introduceName,
             introduceUrl: introduceUrl,
             introduceTitle: introduceTitle,

@@ -27,7 +27,7 @@ export default function DashboardEmailContactEdit(props) {
     const onSubmit = (event) => {
         event.preventDefault()    
         setBoxLoading(true) 
-        axios.put('https://uel-law.herokuapp.com/contact', {
+        axios.put(`${process.env.REACT_APP_API_ENDPOINT}/contact`, {
             id: id,
             contactEmail: contactEmail,
             contactName: contactName,

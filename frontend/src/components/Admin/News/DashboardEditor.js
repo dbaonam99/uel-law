@@ -32,7 +32,7 @@ export const TOOLS = {
     class: Image,
     config: {
       endpoints: {
-        byFile: 'https://uel-law.herokuapp.com/image', // Your backend file uploader endpoint
+        byFile: `${process.env.REACT_APP_API_ENDPOINT}/image`, // Your backend file uploader endpoint
       },
     },
   },

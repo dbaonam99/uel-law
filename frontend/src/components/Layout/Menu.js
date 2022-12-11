@@ -31,15 +31,15 @@ function Menu(props) {
 
     useEffect(()=> { 
         setDropDown(location)
-        axios.get('https://uel-law.herokuapp.com/introduce')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/introduce`)
         .then((res)=>{
             setIntroduceList(res.data)
         })
-        axios.get('https://uel-law.herokuapp.com/archive')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/archive`)
         .then((res)=>{
             setArchiveList(res.data)
         })
-        axios.get('https://uel-law.herokuapp.com/library')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
         .then((res)=>{
             const libGroupArr = []
             for (let i in res.data) {
@@ -222,7 +222,7 @@ function Menu(props) {
                                             <div 
                                                 key={index} 
                                                 onClick={()=>{   
-                                                    axios.put('https://uel-law.herokuapp.com/archive', {
+                                                    axios.put(`${process.env.REACT_APP_API_ENDPOINT}/archive`, {
                                                         id: item._id,
                                                         archiveView: 1
                                                     })

@@ -9,7 +9,7 @@ export default function NewsLetter() {
     const onSubmit = (event) => {
         event.preventDefault()  
 
-        axios.post('https://uel-law.herokuapp.com/email', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/email`, {
             subscriber: subscriberEmail
         })
         .then((res)=>{

@@ -13,7 +13,7 @@ function Widget(props) {
     const [data, setData] = useState([])
 
     useEffect(()=>{ 
-            axios.get('https://uel-law.herokuapp.com/news')
+            axios.get(`${process.env.REACT_APP_API_ENDPOINT}/news`)
             .then((res)=>{
                 const resData = res.data
                 //Get all category

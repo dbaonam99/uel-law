@@ -6,22 +6,22 @@ const app = express();
 const server = http.createServer(app);
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
-var cookieParser = require("cookie-parser");  
+const cookieParser = require("cookie-parser");  
 
-var bannerRoutes = require('./routes/banner'); 
-var homeRoutes = require('./routes/home'); 
-var quoteRoutes = require('./routes/quote'); 
-var introduceRoutes = require('./routes/introduce'); 
-var archiveRoutes = require('./routes/archive'); 
-var sponsorRoutes = require('./routes/sponsor'); 
-var teamRoutes = require('./routes/team'); 
-var emailRoutes = require('./routes/email'); 
-var contactRoutes = require('./routes/contact'); 
-var imageRoutes = require('./routes/image'); 
-var newsRoutes = require('./routes/news'); 
-var libraryRoutes = require('./routes/library'); 
-var todosRoutes = require('./routes/todos'); 
-var userRoutes = require('./routes/user'); 
+const bannerRoutes = require('./routes/banner'); 
+const homeRoutes = require('./routes/home'); 
+const quoteRoutes = require('./routes/quote'); 
+const introduceRoutes = require('./routes/introduce'); 
+const archiveRoutes = require('./routes/archive'); 
+const sponsorRoutes = require('./routes/sponsor'); 
+const teamRoutes = require('./routes/team'); 
+const emailRoutes = require('./routes/email'); 
+const contactRoutes = require('./routes/contact'); 
+const imageRoutes = require('./routes/image'); 
+const newsRoutes = require('./routes/news'); 
+const libraryRoutes = require('./routes/library'); 
+const todosRoutes = require('./routes/todos'); 
+const userRoutes = require('./routes/user'); 
 
 mongoose.connect(
   process.env.MONGO_URL, 
@@ -33,7 +33,7 @@ mongoose.connect(
   }
 );
 
-var cors = require('cors');
+const cors = require('cors');
 app.use(bodyParser.json());
 app.use(cookieParser('secret'));
 app.use(express.static('public'))

@@ -13,7 +13,7 @@ export default function DashboardEmailCreate(props) {
         event.preventDefault()  
 
         setBoxLoading(true)
-        axios.post('https://uel-law.herokuapp.com/email', {
+        axios.post(`${process.env.REACT_APP_API_ENDPOINT}/email`, {
             subscriber: subscriberEmail
         })
         .then(()=>{

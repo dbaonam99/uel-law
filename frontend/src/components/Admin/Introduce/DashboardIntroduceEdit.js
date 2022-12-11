@@ -29,7 +29,7 @@ export default function DashboardIntroduceEdit(props) {
     const onSubmit = (event) => {
         event.preventDefault()   
         setBoxLoading(true)
-        axios.put('https://uel-law.herokuapp.com/introduce', {
+        axios.put(`${process.env.REACT_APP_API_ENDPOINT}/introduce`, {
             id: id,
             introduceName: introduceName,
             introduceUrl: introduceUrl,

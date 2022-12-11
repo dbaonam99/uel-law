@@ -21,15 +21,16 @@ import { ChangeToSlug } from './Func.js'
 import LoadingPage from './components/LoadingPage';
 
 function App() {
-
     const [introduceList, setIntroduceList] = useState([])
     const [libraryGroupList, setLibraryGroupList] = useState([])
+    const [loading, setLoading] = useState(true)
+    
     useEffect(()=>{
-        axios.get('https://uel-law.herokuapp.com/introduce')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/introduce`)
         .then((res)=>{
             setIntroduceList(res.data)
         })
-        axios.get('https://uel-law.herokuapp.com/library')
+        axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`)
         .then((res)=>{
             const libGroupArr = []
             for (let i in res.data) {
@@ -42,7 +43,6 @@ function App() {
         })
     }, []) 
 
-    const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
         document.body.style.overflow = 'hidden';

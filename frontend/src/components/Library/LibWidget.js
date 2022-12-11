@@ -12,7 +12,7 @@ function LibWidget(props) {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    axios.get('https://uel-law.herokuapp.com/library').then((res) => {
+    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/library`).then((res) => {
       const resData = []
       for (let i in res.data) {
         if (
