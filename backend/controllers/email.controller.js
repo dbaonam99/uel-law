@@ -49,19 +49,21 @@ module.exports.postEmail = async function(req, res) {
     const userSubject = home[0].emailSubject;
     const userText = home[0].emailText;
     
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: userEmail,
-            pass: userPassword
-        }
-    })
-    transporter.verify(function(error, success) {
-        if (error) {
-            console.log(error);
-        } else { 
-        }
-    });
+    if (userEmail && userPassword) {
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: userEmail,
+                pass: userPassword
+            }
+        })
+        transporter.verify(function(error, success) {
+            if (error) {
+                console.log(error);
+            } else { 
+            }
+        });
+    }
 
     var email = req.body.subscriber;
 	var emailData = await Email.findOne({ subscriberEmail: email });
@@ -93,13 +95,15 @@ module.exports.postEmail = async function(req, res) {
         `<img src="https://uel-law.herokuapp.com/email/${id}/${emailInfo.sendEmail[emailInfo.sendEmail.length - 1].emailId}" alt="" width="1px" height="1px"></div>`
     }
 
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-    }) 
+    if (userEmail && userPassword) {
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+            console.log(error);
+            } else {
+            console.log('Email sent: ' + info.response);
+            }
+        }) 
+    }
 
 	res.status(200).send('Đăng ký nhận tin mới thành công!');
 }
