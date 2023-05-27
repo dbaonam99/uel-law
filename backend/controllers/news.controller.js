@@ -38,19 +38,22 @@ module.exports.post = async function(req, res) {
     const userSubject = home[0].emailSubjectNews;
     const userText = home[0].emailTextNews;
     
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: userEmail,
-            pass: userPassword
-        }
-    })
-    transporter.verify(function(error, success) {
-        if (error) {
-            console.log(error);
-        } else { 
-        }
-    });
+    if (userEmail && userPassword) {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: userEmail,
+                pass: userPassword
+            }
+        })
+        transporter.verify(function(error, success) {
+            if (error) {
+                console.log(error);
+            } else { 
+            }
+        });
+    }
+
     const data = {
         newsBanner: req.body.newsBanner,
         newsTitle: req.body.newsTitle,
@@ -84,13 +87,15 @@ module.exports.post = async function(req, res) {
                 `<img src="https://uel-law.herokuapp.com/email/${emailList[i]._id}/${emailInfo.sendEmail[emailInfo.sendEmail.length - 1].emailId}" alt="" width="1px" height="1px"></div>`
             }
     
-            transporter.sendMail(mailOptions, function(error, info){
-                if (error) {
-                  console.log(error);
-                } else {
-                  console.log('Email sent: ' + info.response);
-                }
-            })
+            if (userEmail && userPassword) {
+                transporter.sendMail(mailOptions, function(error, info){
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      console.log('Email sent: ' + info.response);
+                    }
+                })
+            }
         }
 
         res.status(200).send(id);  
