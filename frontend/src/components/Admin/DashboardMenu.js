@@ -59,7 +59,7 @@ export default function DashboardMenu(props) {
                         }}
                         >
                         <div className="db-menu-avt flex-center">
-                            <img alt="" src="https://uel-law.herokuapp.com/images/230dd66fba72ccf5926f7221c3b20973"></img>
+                            <img alt="" src="../../assets/admin-avatar.png"></img>
                         </div>
                         { hideText === false &&  
                             <p className="db-menu-name" style={{marginLeft: '20px'}}> 
